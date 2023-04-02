@@ -83,27 +83,7 @@
         deleteBtn.style.float = "right";
         deleteBtn.addEventListener("click", function() {
           taskList.removeChild(taskItem);
-        });
-        taskItem.appendChild(deleteBtn);
-                // Add a complete button to the task item
-        const completeBtn = document.createElement("button");
-        completeBtn.innerHTML = "Complete";
-        completeBtn.style.marginRight = "10px";
-        completeBtn.style.float = "right";
-        completeBtn.addEventListener("click", function() {
-          taskItem.classList.toggle("completed");
-        });
-        taskItem.appendChild(completeBtn);
-
-        // Add the task item to the task list
-        taskList.appendChild(taskItem);
-
-        // Clear the task input field
-        taskInput.value = "";
-      });
+            });
     </script>
   </body>
 </html>
-
-
-       
