@@ -59,7 +59,7 @@
       <ul>
         <!-- The task items will be added here dynamically -->
       </ul>
-    </div>
+    <div>
     <script>
       // Get the task input field and the add task button
       const taskInput = document.querySelector(".add-task-input");
@@ -85,5 +85,6 @@
           taskList.removeChild(taskItem);
             });
     </script>
+    </div>
   </body>
 </html>
