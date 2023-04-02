@@ -1,81 +1,105 @@
 <html>
   <head>
+    <title>To-Do List</title>
     <style>
-      .container {
-        width: 50%;
-        margin: 0 auto;
-      }
-      input[type="text"] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-      }
-      button {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        border: none;
-        border-radius: 4px;
-        background-color: #4CAF50;
-        color: white;
-        cursor: pointer;
-      }
-      ul {
-        list-style-type: none;
-        padding: 0;
-      }
-      li {
-        margin: 10px 0;
-        padding: 12px 20px;
-        background-color: #f1f1f1;
-        border-radius: 4px;
-      }
+ /* Add your CSS styles here */
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  width: 50%;
+  margin-right: 10px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: lightblue;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: blue;
+}
+
+#task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.task-item {
+  background-color: lightgray;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 10px;
+  width: 20%;
+  text-align: center;
+}
+
+.task-item p {
+  margin: 0;
+}
+
+.task-item button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  float: right;
+}
+
+.task-item button:hover {
+  background-color: darkred;
+}
     </style>
   </head>
   <body>
-    <div class="container">
-      <h2>To-Do List</h2>
-      <input type="text" id="taskInput">
-      <button id="addTaskBtn">Create a new task item</button>
-      <ul id="taskList">
-      </ul>
-    </div>
-
+    <h1>To-Do List</h1>
+    <form id="add-form">
+      <input type="text" id="task-input" placeholder="Add a new task">
+      <button type="submit">Add</button>
+    </form>
+    <ul id="task-list">
+      <!-- Task items will be added here -->
+    </ul>
     <script>
-      const taskInput = document.getElementById("taskInput");
-      const addTaskBtn = document.getElementById("addTaskBtn");
-      const taskList = document.getElementById("taskList");
+       // Add your JavaScript code here
+const taskInput = document.querySelector('#task-input');
+const taskList = document.querySelector('#task-list');
+const addForm = document.querySelector('#add-form');
 
-      addTaskBtn.addEventListener("click", function() {
-        const task = taskInput.value;
-        if (!task) return;
+// Add a new task item
+addForm.addEventListener('submit', function(e) {
+  e.prevent
 
-        const li = document.createElement("li");
-        li.innerHTML = task + " ";
-
-        const deleteBtn = document.createElement("button");
-        deleteBtn.innerHTML = "Delete";
-        deleteBtn.addEventListener("click", function() {
-          taskList.removeChild(li);
-        });
-        li.appendChild(deleteBtn);
-
-        const changeBtn = document.createElement("button");
-        changeBtn.innerHTML = "Change";
-        changeBtn.addEventListener("click", function() {
-          const newTask = prompt("Enter the new task", task);
-          li.innerHTML = newTask + " ";
-          li.appendChild(deleteBtn);
-          li.appendChild(changeBtn);
-        });
-        li.appendChild(changeBtn);
-
-        taskList.appendChild(li);
-        taskInput.value = "";
-      });
     </script>
   </body>
 </html>
+
